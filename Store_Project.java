@@ -1,6 +1,9 @@
 package practice_projects;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Random;
+
 
 
 /*	Practice creating a class to go along with
@@ -20,64 +23,82 @@ class Store {
 
 		Store s = new Store();
 
-		s.insert(s, 3);
-		s.insert(s, 4);
-		s.insert(s, 4);
-		s.insert(s, 5);
+		s.insert(3);
+		s.insert(4);
+		s.insert(4);
+		s.insert(1);
+		s.remove(3);
+		s.getRandom();
+		
+		Store p = new Store();
 
-		s.remove(s, 3);
-
-		s.getRandom(s);
+		p.insert(5);
+		p.insert(9);
+		p.insert(9);
+		p.insert(2);
+		p.remove(9);
+		p.getRandom();
         
     }
 
 
-
-	public void insert(Store s, int value) {
+	// insert value into list of values + insert value into map as key, with index as 'value'
+	public void insert(int value) {
 
 		if(values.contains(value)) return;
 
-		s.values.add(value);
-		s.map.put(value,s.values.size() - 1);
+		this.values.add(value);
+		this.map.put(value,this.values.size() - 1);
 
-
-		System.out.println("\nAdded " + value + " to the map.");
-		printValues(s);
-
-		System.out.println("Map: " + s.map.toString());
+		// printing for testing and examples
+		// System.out.println("\nAdded " + value + " to the list and map.");
+		this.printValues();
+		// System.out.println("Map: " + s.map.toString());
 
 	}
 
-	public void remove(Store s, int value) {
+
+	public void remove(int value) {
 
 		if(!(values.contains(value))) {
 			System.out.println("\n" + value + " not found in values.");
 			return;
 		}
 
-		// swapping element to remove to last place in list in order to pop
-		int index = s.map.get(value);
-		int temp_val = s.values.get(s.values.size()-1);
+		// init elements to be swapped (swapping to lastIndex and then popping as to make shifting unnecessary)
+		int lastIndex = this.values.size()-1;
+		int index = this.map.get(value);
+		int temp_val = this.values.get(lastIndex);
 
+		// replacing values
+		this.values.set(lastIndex, value);
+		this.values.set(index, temp_val);
+		this.map.replace(temp_val, index);
 
+		// removing values
+		this.values.remove(lastIndex);
+		this.map.remove(value);
 
+		// sys.outs for testing
+		// System.out.println("\n" + "Removed " + value + " from list and map.");
 		// System.out.println(index + " " + temp_val);
+		this.printValues();
 		// System.out.println("Map: " + s.map.toString());		
-
-
-
-		// System.out.println("Values: " + s.values.toString());
-		// System.out.println("Map: " + s.map.toString());
-
-	}
-
-	public void getRandom(Store s) {
-		
 	}
 
 
-	public void printValues(Store s) {
-		System.out.println(s.values.toString());
+	// gets random element from Values
+	public void getRandom() {
+		Random rn = new Random();
+		int randomIndex = rn.nextInt(this.values.size());
+
+		System.out.println("Random element : " + this.values.get(randomIndex));
+	}
+
+
+	// c'mon...you know what it does
+	public void printValues() {
+		System.out.println("Values: " + this.values.toString());
 	}	
 
 }
