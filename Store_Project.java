@@ -35,7 +35,8 @@ class Store {
     }
 
 
-	// insert value into list of values + insert value into map as key, with index as 'value'
+	// insert value into list of values + insert value into map as key, with index as 'value' 
+	// also, no duplicates
 	public void insert(int value) {
 
 		if(values.contains(value)) return;
