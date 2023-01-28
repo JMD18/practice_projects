@@ -1,10 +1,7 @@
 package practice_projects;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
-
-
 
 /*	Practice creating a class to go along with
  * 	YT coding interview found at the link below:
@@ -35,8 +32,7 @@ class Store {
     }
 
 
-	// insert value into list of values + insert value into map as key, with index as 'value' 
-	// also, no duplicates
+	// insert value into list of values + insert value into map as key, with index as 'value'
 	public void insert(int value) {
 
 		if(values.contains(value)) return;
@@ -44,7 +40,7 @@ class Store {
 		this.values.add(value);
 		this.map.put(value,this.values.size() - 1);
 
-		this.printValues();
+		// this.printValues();
 
 	}
 
@@ -71,7 +67,7 @@ class Store {
 		this.values.remove(lastIndex);
 		this.map.remove(value);
 
-		this.printValues();
+		// this.printValues();
 	}
 
 
