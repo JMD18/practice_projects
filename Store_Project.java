@@ -24,20 +24,13 @@ class Store {
 		Store s = new Store();
 
 		s.insert(3);
-		s.insert(4);
-		s.insert(4);
-		s.insert(1);
-		s.remove(3);
-		s.getRandom();
-		
-		Store p = new Store();
+		s.insert(6);
+		s.insert(7);
+		s.insert(9);
+		s.insert(12);
+		s.insert(51);
 
-		p.insert(5);
-		p.insert(9);
-		p.insert(9);
-		p.insert(2);
-		p.remove(9);
-		p.getRandom();
+		s.remove(s.getRandom());
         
     }
 
@@ -50,14 +43,12 @@ class Store {
 		this.values.add(value);
 		this.map.put(value,this.values.size() - 1);
 
-		// printing for testing and examples
-		// System.out.println("\nAdded " + value + " to the list and map.");
 		this.printValues();
-		// System.out.println("Map: " + s.map.toString());
 
 	}
 
 
+	// remove value from list and also fix affected indices in map
 	public void remove(int value) {
 
 		if(!(values.contains(value))) {
@@ -79,20 +70,16 @@ class Store {
 		this.values.remove(lastIndex);
 		this.map.remove(value);
 
-		// sys.outs for testing
-		// System.out.println("\n" + "Removed " + value + " from list and map.");
-		// System.out.println(index + " " + temp_val);
 		this.printValues();
-		// System.out.println("Map: " + s.map.toString());		
 	}
 
 
 	// gets random element from Values
-	public void getRandom() {
+	public int getRandom() {
 		Random rn = new Random();
 		int randomIndex = rn.nextInt(this.values.size());
 
-		System.out.println("Random element : " + this.values.get(randomIndex));
+		return this.values.get(randomIndex);
 	}
 
 
