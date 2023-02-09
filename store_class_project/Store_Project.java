@@ -1,4 +1,4 @@
-package practice_projects;
+package practice_projects.store_class_project;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
