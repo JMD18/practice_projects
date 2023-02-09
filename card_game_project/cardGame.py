@@ -64,7 +64,7 @@ def main():
 
         if isFullHouse(hand):
             printHand(hand)
-            break;
+            break
     print("Hands dealt before full house: ")
     print(count)
     print("Full house probability was: " )
