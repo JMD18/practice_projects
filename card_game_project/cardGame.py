@@ -50,8 +50,8 @@ def isFullHouse(hand):
     else:
         return False
 
+def calculateFullHouse():
 
-def main():
     count = 0
     while(1):
 
@@ -69,6 +69,12 @@ def main():
     print(count)
     print("Full house probability was: " )
     print(1/count)
+
+def main():
+    
+    pass
+
+
 
 if __name__ == "__main__":
     main()
