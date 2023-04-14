@@ -3,6 +3,9 @@ import java.util.Arrays;
 import java.util.Random;
 
 class Sorting {
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
 
         int[] arr1 = {5,8,3,7,9,2,4,1,6};
@@ -45,14 +48,16 @@ class Sorting {
         // int p = array[p_index];
 
         if(low<high) { 
-			int q = partition(array,low,high);
-			quickSort(array,low,q-1);
-			quickSort(array,q+1,high);
+			int p = partition(array,low,high);
+			quickSort(array,low,p-1);
+			quickSort(array,p+1,high);
 		}
 
     }
 
-    public static int partition(int[] arr, int low, int high) {
+    private static int partition(int[] arr, int low, int high) {
+
+        randomPivot(arr, low, high);
         int x = arr[high];
 		int i = low-1;
 
@@ -72,6 +77,51 @@ class Sorting {
 
 		return (i+1);
     }
+
+    public static void randomPivot(int[] arr, int low, int high) {
+
+        Random rn = new Random();
+        int pivot = rn.nextInt(high-low)+low;
+
+        int temp = arr[pivot];
+        arr[pivot] = arr[high];
+        arr[high] = temp;
+
+
+    }
+    
+    // public static void quickSort(int[] array, int low, int high) {
+
+    //     // int p_index = randPivot(array);
+    //     // int p = array[p_index];
+
+    //     if(low<high) { 
+	// 		int q = partition(array,low,high);
+	// 		quickSort(array,low,q-1);
+	// 		quickSort(array,q+1,high);
+	// 	}
+
+
+    // public static int partition(int[] arr, int low, int high) {
+    //     int x = arr[high];
+	// 	int i = low-1;
+
+	// 	for(int j=low; j<=(high-1);j++) {
+
+	// 		if(arr[j]<=x) {
+	// 			i++;
+	// 			int temp = arr[i];
+	// 			arr[i] = arr[j];
+	// 			arr[j] = temp;
+	// 		}
+	// 	}
+        
+	// 	int temp = arr[i+1];
+	// 	arr[i+1] = arr[high];
+	// 	arr[high] = temp;
+
+	// 	return (i+1);
+    // }
 
 
     public static void mergeSort(int[] arr, int low, int high) {

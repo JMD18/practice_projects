@@ -40,7 +40,7 @@ class Grass(Type):
 class Normal(Type):
     
     def __init__(self):
-        super().__init__(3, "Normal", [Fighting], [Ghost], [Ghost])
+        super().__init__(3, "Normal", [Fighting], [], [Ghost])
 
 class Flying(Type):
     

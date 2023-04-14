@@ -26,13 +26,13 @@ class Mons:
     
     def getType(self):
 
-        try:
+        try: 
             if len(self.type) > 1:
                 return self.type[0].getTypeStr() + "/" + self.type[1].getTypeStr()
             else:
-                return self.type[0].getTypeStr
+                return self.type[0].getTypeStr()
         except:
-            return self.type.getTypeStr()
+            return self.type.getTypeStr()    
             
     def getLevel(self):
         return self.level
