@@ -1,0 +1,22 @@
+[project]
+name = "LIFE"
+version = "0.1.0"
+description = "Conway's Game of Life! Practice Project!"
+authors = [
+    {name = "Joshua Daugherty", email = "joshd18@uab.edu"},
+]
+dependencies = [
+    "pygame>=2.5.2",
+    "numpy>=1.26.4",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true
